@@ -1,8 +1,11 @@
 package com.laundry.main.customer.dto;
 
+
+
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -27,7 +30,7 @@ public class CustomerRequest {
     private String lastName;
 
     @NotBlank(message = "Mobile number is required")
-    @Size(max = 20, message = "Mobile number must not exceed 20 characters")
+    @Pattern(regexp = "^\\d{10}$", message = "Mobile number must be 10 digits")
     @Schema(example = "9876543210")
     private String mobile;
 

@@ -1,4 +1,4 @@
-package com.laundry.main.customer;
+package com.laundry.main.customer.entity;
 
 import com.laundry.main.audit.BaseAuditableEntity;
 import jakarta.persistence.Column;
@@ -13,12 +13,13 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 @Data
 @EqualsAndHashCode(callSuper = false)
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
+@SuperBuilder
 @Entity
 @Table(name = "customer", indexes = {
         @Index(name = "idx_customer_mobile", columnList = "mobile"),

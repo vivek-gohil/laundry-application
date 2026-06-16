@@ -1,6 +1,6 @@
 package com.laundry.main.customer.service.impl;
 
-import com.laundry.main.customer.Customer;
+import com.laundry.main.customer.entity.Customer;
 import com.laundry.main.customer.dto.CustomerRequest;
 import com.laundry.main.customer.dto.CustomerResponse;
 import com.laundry.main.customer.mapper.CustomerMapper;
