@@ -7,7 +7,7 @@ import com.laundry.main.customer.mapper.CustomerMapper;
 import com.laundry.main.customer.service.CustomerService;
 import com.laundry.main.exception.DuplicateResourceException;
 import com.laundry.main.exception.ResourceNotFoundException;
-import com.laundry.main.repository.CustomerRepository;
+import com.laundry.main.customer.repository.CustomerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

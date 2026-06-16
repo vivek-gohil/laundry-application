@@ -6,7 +6,7 @@ import com.laundry.main.customer.dto.CustomerResponse;
 import com.laundry.main.customer.mapper.CustomerMapper;
 import com.laundry.main.exception.DuplicateResourceException;
 import com.laundry.main.exception.ResourceNotFoundException;
-import com.laundry.main.repository.CustomerRepository;
+import com.laundry.main.customer.repository.CustomerRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -18,7 +18,6 @@ import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;

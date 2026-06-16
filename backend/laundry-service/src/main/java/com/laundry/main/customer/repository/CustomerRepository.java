@@ -1,4 +1,4 @@
-package com.laundry.main.repository;
+package com.laundry.main.customer.repository;
 
 import com.laundry.main.customer.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
