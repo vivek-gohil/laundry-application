@@ -44,11 +44,14 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String generateToken(Map<String, Object> claims, AppUser appUser) {
 
-        return Jwts.builder()
-                .setClaims(claims)
-                .setSubject(appUser.getUsername())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + jwtProperties.getExpiration()))
+        var builder = Jwts.builder()
+                .subject(appUser.getUsername())
+                .issuedAt(new Date())
+                .expiration(new Date(System.currentTimeMillis() + jwtProperties.getExpiration()));
+
+        claims.forEach(builder::claim);
+
+        return builder
                 .signWith(getSigningKey())
                 .compact();
     }
@@ -77,10 +80,10 @@ public class JwtServiceImpl implements JwtService {
 
     private Claims extractAllClaims(String token) {
         return Jwts.parser()
-            .setSigningKey(getSigningKey())
-            .build()
-            .parseClaimsJws(token)
-            .getBody();
+                .setSigningKey(getSigningKey())
+                .build()
+                .parseClaimsJws(token)
+                .getBody();
     }
 
     private boolean isTokenExpired(String token) {

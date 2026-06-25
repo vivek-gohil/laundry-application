@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 import com.laundry.main.payment.entity.Payment;
 import com.laundry.main.payment.enums.PaymentStatus;
 
-@Repository
+
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
     Optional<Payment> findByPaymentReference(String paymentReference);
