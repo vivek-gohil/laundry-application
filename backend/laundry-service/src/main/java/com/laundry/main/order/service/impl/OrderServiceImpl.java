@@ -12,8 +12,9 @@ import com.laundry.main.order.entity.OrderItem;
 import com.laundry.main.order.enums.OrderStatus;
 import com.laundry.main.order.mapper.OrderMapper;
 import com.laundry.main.order.repository.OrderRepository;
+import com.laundry.main.common.constants.ReferencePrefix;
+import com.laundry.main.common.util.ReferenceNumberGenerator;
 import com.laundry.main.order.service.OrderService;
-import com.laundry.main.order.util.OrderNumberGenerator;
 import com.laundry.main.servicecatalog.entity.ServiceMaster;
 import com.laundry.main.servicecatalog.repository.ServiceMasterRepository;
 import lombok.RequiredArgsConstructor;
@@ -42,7 +43,9 @@ public class OrderServiceImpl implements OrderService {
         order.setItems(orderItems);
         order.setCustomer(customer);
         order.setStatus(OrderStatus.CREATED);
-        order.setOrderNumber(OrderNumberGenerator.generate());
+        order.setOrderNumber(
+                ReferenceNumberGenerator.generate(
+                        ReferencePrefix.ORDER));
         BigDecimal totalAmount = BigDecimal.ZERO;
         for (OrderItem item : order.getItems()) {
             ServiceMaster service = serviceRepository.findById(item.getService().getServiceId())
