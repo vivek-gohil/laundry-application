@@ -6,6 +6,7 @@ import com.laundry.main.order.dto.OrderItemRequest;
 import com.laundry.main.order.dto.OrderItemResponse;
 import com.laundry.main.order.dto.OrderRequest;
 import com.laundry.main.order.dto.OrderResponse;
+import com.laundry.main.order.dto.OrderTrackingResponse;
 import com.laundry.main.order.entity.Order;
 import com.laundry.main.order.entity.OrderItem;
 import com.laundry.main.servicecatalog.entity.ServiceMaster;
@@ -14,6 +15,7 @@ import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.MappingTarget;
+import org.mapstruct.Named;
 import org.mapstruct.NullValuePropertyMappingStrategy;
 
 import java.util.List;
@@ -44,6 +46,17 @@ public interface OrderMapper {
     @Mapping(target = "items",
             source = "items")
     OrderResponse toResponse(Order order);
+
+    @Mapping(target = "customerName",
+            source = "customer")
+
+    @Mapping(target = "mobile",
+            source = "customer.mobile",
+            qualifiedByName = "maskMobile")
+
+    @Mapping(target = "status",
+            expression = "java(order.getStatus() == null ? null : order.getStatus().name())")
+    OrderTrackingResponse toTrackingResponse(Order order);
 
     @BeanMapping(
             nullValuePropertyMappingStrategy =
@@ -127,5 +140,17 @@ public interface OrderMapper {
                         : customer.getLastName();
 
         return (firstName + " " + lastName).trim();
+    }
+
+    @Named("maskMobile")
+    default String maskMobile(String mobile) {
+
+        if (mobile == null || mobile.length() != 10) {
+            return mobile;
+        }
+
+        return mobile.substring(0, 2)
+                + "******"
+                + mobile.substring(8);
     }
 }

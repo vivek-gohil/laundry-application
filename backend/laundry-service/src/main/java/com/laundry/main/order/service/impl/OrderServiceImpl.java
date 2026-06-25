@@ -6,6 +6,7 @@ import com.laundry.main.exception.ResourceNotFoundException;
 import com.laundry.main.order.dto.OrderItemResponse;
 import com.laundry.main.order.dto.OrderRequest;
 import com.laundry.main.order.dto.OrderResponse;
+import com.laundry.main.order.dto.OrderTrackingResponse;
 import com.laundry.main.order.entity.Order;
 import com.laundry.main.order.entity.OrderItem;
 import com.laundry.main.order.enums.OrderStatus;
@@ -20,8 +21,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -90,5 +89,19 @@ public class OrderServiceImpl implements OrderService {
         List<OrderItemResponse> items = order.getItems().stream().map(orderMapper::toResponse).toList();
         response.setItems(items);
         return response;
+    }
+
+    @Override
+    @Transactional(readOnly = true)
+    public OrderTrackingResponse trackOrder(
+            String orderNumber,
+            String mobile) {
+
+        Order order = orderRepository
+                .findByOrderNumberAndCustomerMobile(orderNumber, mobile)
+                .orElseThrow(() -> new ResourceNotFoundException(
+                        "Order not found."));
+
+        return orderMapper.toTrackingResponse(order);
     }
 }
