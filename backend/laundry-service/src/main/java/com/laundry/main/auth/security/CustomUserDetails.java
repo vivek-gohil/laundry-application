@@ -18,7 +18,7 @@ public class CustomUserDetails implements UserDetails {
 
     return appUser.getRoles().stream()
         .map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
-        .collect(Collectors.toSet());
+        .collect(Collectors.toUnmodifiableSet());
   }
 
   @Override
@@ -33,22 +33,22 @@ public class CustomUserDetails implements UserDetails {
 
   @Override
   public boolean isAccountNonExpired() {
-    return appUser.getAccountNonExpired();
+    return appUser.isAccountNonExpired();
   }
 
   @Override
   public boolean isAccountNonLocked() {
-    return appUser.getAccountNonLocked();
+    return appUser.isAccountNonLocked();
   }
 
   @Override
   public boolean isCredentialsNonExpired() {
-    return appUser.getCredentialsNonExpired();
+    return appUser.isCredentialsNonExpired();
   }
 
   @Override
   public boolean isEnabled() {
-    return appUser.getEnabled();
+    return appUser.isEnabled();
   }
 
   public AppUser getAppUser() {

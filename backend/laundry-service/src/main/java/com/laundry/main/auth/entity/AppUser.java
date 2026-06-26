@@ -2,6 +2,8 @@ package com.laundry.main.auth.entity;
 
 import com.laundry.main.audit.BaseAuditableEntity;
 import jakarta.persistence.*;
+
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
@@ -14,17 +16,17 @@ import lombok.experimental.SuperBuilder;
 @AllArgsConstructor
 @SuperBuilder
 @Entity
-@Table(
-    name = "app_users",
-    uniqueConstraints = {
-      @UniqueConstraint(name = "uk_app_user_username", columnNames = "username"),
-      @UniqueConstraint(name = "uk_app_user_email", columnNames = "email")
-    })
-public class AppUser extends BaseAuditableEntity {
-
+@Table(name = "app_users", uniqueConstraints = {
+    @UniqueConstraint(name = "uk_app_user_username", columnNames = "username"),
+    @UniqueConstraint(name = "uk_app_user_email", columnNames = "email")
+})
+@EqualsAndHashCode(callSuper = true, onlyExplicitlyIncluded = true)
+public class AppUser extends BaseAuditableEntity implements Serializable {
+  private static final long serialVersionUID = 1L;
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   @Column(name = "user_id")
+  @EqualsAndHashCode.Include
   private Long userId;
 
   @Column(name = "username", nullable = false, length = 50)
@@ -47,28 +49,25 @@ public class AppUser extends BaseAuditableEntity {
 
   @Builder.Default
   @Column(name = "enabled", nullable = false)
-  private Boolean enabled = true;
+  private boolean enabled = true;
 
   @Builder.Default
   @Column(name = "account_non_locked", nullable = false)
-  private Boolean accountNonLocked = true;
+  private boolean accountNonLocked = true;
 
   @Builder.Default
   @Column(name = "account_non_expired", nullable = false)
-  private Boolean accountNonExpired = true;
+  private boolean accountNonExpired = true;
 
   @Builder.Default
   @Column(name = "credentials_non_expired", nullable = false)
-  private Boolean credentialsNonExpired = true;
+  private boolean credentialsNonExpired = true;
 
   @Column(name = "last_login")
   private LocalDateTime lastLogin;
 
   @Builder.Default
   @ManyToMany(fetch = FetchType.LAZY)
-  @JoinTable(
-      name = "user_roles",
-      joinColumns = @JoinColumn(name = "user_id"),
-      inverseJoinColumns = @JoinColumn(name = "role_id"))
+  @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
   private Set<Role> roles = new HashSet<>();
 }
