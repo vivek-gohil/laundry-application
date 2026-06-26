@@ -1,5 +1,8 @@
 package com.laundry.main.payment.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
@@ -17,12 +20,15 @@ import lombok.RequiredArgsConstructor;
 @RestController
 @RequestMapping("/api/payments")
 @RequiredArgsConstructor
+@Tag(name = "Payment", description = "Payment APIs")
 public class PaymentController {
 
     private final PaymentService paymentService;
 
     @PostMapping
+    @Operation(summary = "Create payment", description = "Creates a new payment for an order")
     public ResponseEntity<ApiResponse<PaymentResponse>> createPayment(
+            @Parameter(description = "Payment create request", required = true)
             @Valid @RequestBody PaymentRequest request) {
 
         return ResponseEntity.status(HttpStatus.CREATED)
@@ -32,7 +38,9 @@ public class PaymentController {
     }
 
     @GetMapping("/{paymentId}")
+    @Operation(summary = "Get payment by id", description = "Returns payment details for a given payment id")
     public ResponseEntity<ApiResponse<PaymentResponse>> getPaymentById(
+            @Parameter(description = "Payment id", required = true)
             @PathVariable Long paymentId) {
 
         return ResponseEntity.ok(
@@ -42,7 +50,9 @@ public class PaymentController {
     }
 
     @GetMapping("/order/{orderId}")
+    @Operation(summary = "Get payments by order id", description = "Returns all payments associated with a given order")
     public ResponseEntity<ApiResponse<List<PaymentResponse>>> getPaymentsByOrderId(
+            @Parameter(description = "Order id", required = true)
             @PathVariable Long orderId) {
 
         return ResponseEntity.ok(
@@ -52,6 +62,7 @@ public class PaymentController {
     }
 
     @GetMapping
+    @Operation(summary = "Get all payments", description = "Returns all recorded payments")
     public ResponseEntity<ApiResponse<List<PaymentResponse>>> getAllPayments() {
 
         return ResponseEntity.ok(

@@ -6,7 +6,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 
 import com.laundry.main.auth.security.CustomUserDetails;
 
-import java.util.Optional;
 
 public final class SecurityUtils {
 
@@ -16,8 +15,8 @@ public final class SecurityUtils {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null || !auth.isAuthenticated()) return null;
         Object principal = auth.getPrincipal();
-        if (principal instanceof CustomUserDetails) {
-            return ((CustomUserDetails) principal).getUsername();
+        if (principal instanceof CustomUserDetails customUserDetails) {
+            return customUserDetails.getUsername();
         }
         return principal != null ? principal.toString() : null;
     }
@@ -26,8 +25,8 @@ public final class SecurityUtils {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth == null || !auth.isAuthenticated()) return null;
         Object principal = auth.getPrincipal();
-        if (principal instanceof CustomUserDetails) {
-            return ((CustomUserDetails) principal).getAppUser().getUserId();
+        if (principal instanceof CustomUserDetails customUserDetails) {
+            return customUserDetails.getAppUser().getUserId();
         }
         return null;
     }

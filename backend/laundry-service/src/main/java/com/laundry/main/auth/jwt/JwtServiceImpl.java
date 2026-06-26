@@ -1,6 +1,7 @@
 package com.laundry.main.auth.jwt;
 
 import java.nio.charset.StandardCharsets;
+import java.time.Instant;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -44,10 +45,11 @@ public class JwtServiceImpl implements JwtService {
     @Override
     public String generateToken(Map<String, Object> claims, AppUser appUser) {
 
+        var now = Instant.now();
         var builder = Jwts.builder()
                 .subject(appUser.getUsername())
-                .issuedAt(new Date())
-                .expiration(new Date(System.currentTimeMillis() + jwtProperties.getExpiration()));
+                .issuedAt(Date.from(now))
+                .expiration(Date.from(now.plusMillis(jwtProperties.getExpiration())));
 
         claims.forEach(builder::claim);
 
@@ -87,11 +89,11 @@ public class JwtServiceImpl implements JwtService {
     }
 
     private boolean isTokenExpired(String token) {
-        return extractExpiration(token).before(new Date());
+        return extractExpiration(token).isBefore(Instant.now());
     }
 
-    private Date extractExpiration(String token) {
-        return extractClaim(token, Claims::getExpiration);
+    private Instant extractExpiration(String token) {
+        return extractClaim(token, claims -> claims.getExpiration().toInstant());
     }
 
     private SecretKey getSigningKey() {
