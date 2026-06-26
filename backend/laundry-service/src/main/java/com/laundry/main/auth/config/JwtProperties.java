@@ -9,13 +9,9 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @ConfigurationProperties(prefix = "application.security.jwt")
 public class JwtProperties {
 
-    /**
-     * Secret key used to sign JWT.
-     */
-    private String secretKey;
+  /** Secret key used to sign JWT. */
+  private String secretKey;
 
-    /**
-     * Expiration time in milliseconds.
-     */
-    private Long expiration;
+  /** Expiration time in milliseconds. */
+  private Long expiration;
 }

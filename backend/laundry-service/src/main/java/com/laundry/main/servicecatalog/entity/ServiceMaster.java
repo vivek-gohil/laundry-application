@@ -1,10 +1,8 @@
 package com.laundry.main.servicecatalog.entity;
 
-import java.math.BigDecimal;
-
 import com.laundry.main.audit.BaseAuditableEntity;
-
 import jakarta.persistence.*;
+import java.math.BigDecimal;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -17,23 +15,18 @@ import lombok.experimental.SuperBuilder;
 @Table(name = "service_master")
 public class ServiceMaster extends BaseAuditableEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "service_id")
-    private Long serviceId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @Column(name = "service_id")
+  private Long serviceId;
 
-    @Column(name = "service_name",
-            nullable = false,
-            unique = true)
-    private String serviceName;
+  @Column(name = "service_name", nullable = false, unique = true)
+  private String serviceName;
 
-    @Column(name = "price",
-            nullable = false,
-            precision = 10,
-            scale = 2)
-    private BigDecimal price;
+  @Column(name = "price", nullable = false, precision = 10, scale = 2)
+  private BigDecimal price;
 
-    @Column(name = "active")
-    @Builder.Default
-    private Boolean active = true;
+  @Column(name = "active")
+  @Builder.Default
+  private Boolean active = true;
 }

@@ -2,18 +2,17 @@ package com.laundry.main.servicecatalog.service;
 
 import com.laundry.main.servicecatalog.dto.ServiceMasterRequest;
 import com.laundry.main.servicecatalog.dto.ServiceMasterResponse;
-
 import java.util.List;
 
 public interface ServiceMasterService {
 
-    ServiceMasterResponse createService(ServiceMasterRequest request);
+  ServiceMasterResponse createService(ServiceMasterRequest request);
 
-    ServiceMasterResponse getServiceById(Long serviceId);
+  ServiceMasterResponse getServiceById(Long serviceId);
 
-    List<ServiceMasterResponse> getAllServices();
+  List<ServiceMasterResponse> getAllServices();
 
-    ServiceMasterResponse updateService(Long serviceId, ServiceMasterRequest request);
+  ServiceMasterResponse updateService(Long serviceId, ServiceMasterRequest request);
 
-    void deleteService(Long serviceId);
+  void deleteService(Long serviceId);
 }

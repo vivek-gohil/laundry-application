@@ -5,6 +5,5 @@ import com.laundry.main.auth.dto.LoginResponse;
 
 public interface AuthenticationService {
 
-    LoginResponse login(LoginRequest request);
-
+  LoginResponse login(LoginRequest request);
 }

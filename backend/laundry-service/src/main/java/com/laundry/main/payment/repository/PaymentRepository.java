@@ -1,33 +1,29 @@
 package com.laundry.main.payment.repository;
 
+import com.laundry.main.payment.entity.Payment;
+import com.laundry.main.payment.enums.PaymentStatus;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.laundry.main.payment.entity.Payment;
-import com.laundry.main.payment.enums.PaymentStatus;
-
-
 public interface PaymentRepository extends JpaRepository<Payment, Long> {
 
-    Optional<Payment> findByPaymentReference(String paymentReference);
+  Optional<Payment> findByPaymentReference(String paymentReference);
 
-    List<Payment> findByOrderOrderId(Long orderId);
+  List<Payment> findByOrderOrderId(Long orderId);
 
-    @Query("""
+  @Query(
+      """
            SELECT COALESCE(SUM(p.paymentAmount),0)
            FROM Payment p
            WHERE p.order.orderId = :orderId
            """)
-    BigDecimal getTotalPaidAmount(
-            @Param("orderId")
-            Long orderId);
+  BigDecimal getTotalPaidAmount(@Param("orderId") Long orderId);
 
-    List<Payment> findByPaymentStatus(PaymentStatus paymentStatus);
+  List<Payment> findByPaymentStatus(PaymentStatus paymentStatus);
 
-    boolean existsByPaymentReference(String paymentReference);
+  boolean existsByPaymentReference(String paymentReference);
 }

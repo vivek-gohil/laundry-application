@@ -1,20 +1,19 @@
 package com.laundry.main.order.enums;
 
 public enum OrderStatus {
+  CREATED,
 
-    CREATED,
+  PICKUP_SCHEDULED,
 
-    PICKUP_SCHEDULED,
+  PICKED_UP,
 
-    PICKED_UP,
+  PROCESSING,
 
-    PROCESSING,
+  READY,
 
-    READY,
+  OUT_FOR_DELIVERY,
 
-    OUT_FOR_DELIVERY,
+  DELIVERED,
 
-    DELIVERED,
-
-    CANCELLED
+  CANCELLED
 }

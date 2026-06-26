@@ -1,14 +1,13 @@
 package com.laundry.main.payment.enums;
 
 public enum PaymentStatus {
+  PENDING,
 
-    PENDING,
+  PARTIAL,
 
-    PARTIAL,
+  PAID,
 
-    PAID,
+  FAILED,
 
-    FAILED,
-
-    REFUNDED
+  REFUNDED
 }
