@@ -1,0 +1,186 @@
+<div class="login-page">
+
+    <!-- Left Side -->
+
+    <div class="left-panel">
+
+        <div class="brand">
+
+            <div class="logo">
+                🧺
+            </div>
+
+            <div>
+
+                <h2>Laundry Admin</h2>
+
+                <p>Laundry Management System</p>
+
+            </div>
+
+        </div>
+
+        <div class="content">
+
+            <h1>
+                Smart Laundry
+                <br>
+                Management
+            </h1>
+
+            <p class="subtitle">
+
+                A complete solution to manage your laundry business
+                efficiently and effectively.
+
+            </p>
+
+            <div class="feature">
+
+                <mat-icon>verified_user</mat-icon>
+
+                <div>
+
+                    <h4>Secure & Reliable</h4>
+
+                    <p>Enterprise grade security for your data.</p>
+
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <mat-icon>query_stats</mat-icon>
+
+                <div>
+
+                    <h4>Real-time Analytics</h4>
+
+                    <p>Track business performance instantly.</p>
+
+                </div>
+
+            </div>
+
+            <div class="feature">
+
+                <mat-icon>settings</mat-icon>
+
+                <div>
+
+                    <h4>Easy to Use</h4>
+
+                    <p>Simple and intuitive interface.</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Right Side -->
+
+    <div class="right-panel">
+
+        <mat-card class="login-card">
+
+            <div class="login-icon">
+
+                <mat-icon>lock</mat-icon>
+
+            </div>
+
+            <h2>Welcome Back</h2>
+
+            <p class="welcome">
+
+                Sign in to your admin account
+
+            </p>
+
+            <form
+                [formGroup]="loginForm"
+                (ngSubmit)="onLogin()">
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>Username</mat-label>
+
+                    <input
+                        matInput
+                        formControlName="username">
+
+                    <mat-icon matPrefix>
+
+                        person
+
+                    </mat-icon>
+
+                </mat-form-field>
+
+                <mat-form-field appearance="outline">
+
+                    <mat-label>Password</mat-label>
+
+                    <input
+                        matInput
+                        [type]="hidePassword ? 'password' : 'text'"
+                        formControlName="password">
+
+                    <mat-icon matPrefix>
+
+                        lock
+
+                    </mat-icon>
+
+                    <button
+                        mat-icon-button
+                        matSuffix
+                        type="button"
+                        (click)="hidePassword=!hidePassword">
+
+                        <mat-icon>
+
+                            {{hidePassword ? 'visibility' : 'visibility_off'}}
+
+                        </mat-icon>
+
+                    </button>
+
+                </mat-form-field>
+
+                <div class="options">
+
+                    <mat-checkbox formControlName="rememberMe">
+
+                        Remember Me
+
+                    </mat-checkbox>
+
+                    <a href="javascript:void(0)">
+
+                        Forgot Password?
+
+                    </a>
+
+                </div>
+
+                <button
+                    mat-raised-button
+                    color="primary"
+                    class="login-btn">
+
+                    Login
+
+                </button>
+
+            </form>
+
+        </mat-card>
+
+    </div>
+
+</div>
