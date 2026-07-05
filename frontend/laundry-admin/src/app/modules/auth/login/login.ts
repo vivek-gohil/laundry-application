@@ -1,11 +1,21 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  inject,
+  signal
+} from '@angular/core';
+
 import {
   NonNullableFormBuilder,
   ReactiveFormsModule,
   Validators
 } from '@angular/forms';
+
 import { Router } from '@angular/router';
+
+import { finalize } from 'rxjs';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 import { MATERIAL_IMPORTS } from '../../../shared/material/material-imports';
 
@@ -35,17 +45,40 @@ export class Login {
 
   private readonly router = inject(Router);
 
-  hidePassword = true;
+  private readonly destroyRef = inject(DestroyRef);
 
-  loginForm = this.fb.group({
+  readonly hidePassword = signal(true);
 
-    username: ['', Validators.required],
+  readonly isLoading = signal(false);
 
-    password: ['', Validators.required],
+  readonly loginForm = this.fb.group({
+
+    username: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(3),
+        Validators.maxLength(50)
+      ]
+    ],
+
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(6)
+      ]
+    ],
 
     rememberMe: [false]
 
   });
+
+  togglePasswordVisibility(): void {
+
+    this.hidePassword.update(value => !value);
+
+  }
 
   onLogin(): void {
 
@@ -57,35 +90,50 @@ export class Login {
 
     }
 
+    this.isLoading.set(true);
+
     const request: LoginRequest = {
 
-      username: this.loginForm.controls.username.value,
+      username: this.loginForm.controls.username.getRawValue(),
 
-      password: this.loginForm.controls.password.value
+      password: this.loginForm.controls.password.getRawValue()
 
     };
 
-    this.authService.login(request).subscribe({
+    this.authService.login(request)
 
-      next: (response) => {
+      .pipe(
 
-        console.log('Login Success', response);
+        finalize(() => this.isLoading.set(false)),
 
-        this.tokenStorage.saveUser(response.data);
+        takeUntilDestroyed(this.destroyRef)
 
-        this.router.navigate(['/dashboard']);
+      )
 
-      },
+      .subscribe({
 
-      error: (error) => {
+        next: (response) => {
 
-        console.error(error);
+          // Save complete user
+          this.tokenStorage.saveUser(response.data);
 
-        alert('Invalid Username or Password');
+          // If your service has saveToken(), uncomment below
+          // this.tokenStorage.saveToken(response.data.accessToken);
 
-      }
+          this.router.navigate(['/dashboard']);
 
-    });
+        },
+
+        error: (error) => {
+
+          console.error(error);
+
+          // TODO:
+          // Replace with MatSnackBar in Part 4
+
+        }
+
+      });
 
   }
 

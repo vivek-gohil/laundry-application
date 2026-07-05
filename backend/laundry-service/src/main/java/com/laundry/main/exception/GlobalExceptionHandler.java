@@ -1,6 +1,7 @@
 package com.laundry.main.exception;
 
 import com.laundry.main.common.ApiResponse;
+import com.laundry.main.whatsapp.exception.WhatsAppException;
 import jakarta.servlet.http.HttpServletRequest;
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -36,6 +37,13 @@ public class GlobalExceptionHandler {
 
     return buildErrorResponse(
         HttpStatus.BAD_REQUEST, "Validation failed", request.getRequestURI(), validationErrors);
+  }
+
+  @ExceptionHandler(WhatsAppException.class)
+  public ResponseEntity<ApiResponse<ErrorResponse>> handleWhatsAppException(
+      WhatsAppException ex, HttpServletRequest request) {
+    return buildErrorResponse(
+        HttpStatus.BAD_GATEWAY, ex.getMessage(), request.getRequestURI(), null);
   }
 
   @ExceptionHandler(Exception.class)
