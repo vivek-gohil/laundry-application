@@ -1,7 +1,5 @@
 package com.laundry.main.whatsapp.webhook;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.laundry.main.whatsapp.config.WhatsAppConfigurationProperties;
 import com.laundry.main.whatsapp.dto.webhook.WhatsAppWebhookPayload;
 import com.laundry.main.whatsapp.service.webhook.WhatsAppWebhookService;
@@ -19,6 +17,8 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.ObjectMapper;
 
 @RestController
 @RequestMapping("/api/webhook/whatsapp")
@@ -65,7 +65,7 @@ public class WhatsAppWebhookController {
                     rawBody, WhatsAppWebhookPayload.class);
             webhookService.process(payload);
             return ResponseEntity.ok().build();
-        } catch (JsonProcessingException ex) {
+        } catch (JacksonException ex) {
             return ResponseEntity.badRequest().build();
         }
     }
