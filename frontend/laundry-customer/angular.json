@@ -6,7 +6,7 @@
   },
   "newProjectRoot": "projects",
   "projects": {
-    "laundry-admin": {
+    "laundry-customer": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -30,8 +30,6 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap-icons/font/bootstrap-icons.css",
               "src/styles.scss"
             ]
           },
@@ -63,10 +61,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "laundry-admin:build:production"
+              "buildTarget": "laundry-customer:build:production"
             },
             "development": {
-              "buildTarget": "laundry-admin:build:development"
+              "buildTarget": "laundry-customer:build:development"
             }
           },
           "defaultConfiguration": "development"
