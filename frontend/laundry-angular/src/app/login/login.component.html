@@ -1,0 +1,49 @@
+<div class="login-page">
+<header class="topbar">
+  <a class="brand" routerLink="/" aria-label="A square home"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a>
+  <button class="menu-toggle" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'" [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation" (click)="toggleMenu()">☰</button>
+  <nav class="nav-links" [class.open]="menuOpen" id="primary-navigation">
+    <a routerLink="/" (click)="closeMenu()">Services</a>
+    <a routerLink="/" (click)="closeMenu()">How it works</a>
+    <a routerLink="/pricing" (click)="closeMenu()">Pricing</a>
+    <a class="mobile-login" routerLink="/login" aria-current="page" (click)="closeMenu()">Log in <span>→</span></a>
+  </nav>
+  <a class="login" routerLink="/login" aria-current="page">Log in <span>→</span></a>
+</header>
+
+<main class="login-page">
+  <section class="order-section">
+    <div class="section-heading">
+      <p class="eyebrow"><span></span> MEMBER SIGN IN</p>
+      <h2>Login with your<br /><em>mobile number.</em></h2>
+      <p>Enter your mobile number and verify with an OTP to continue.</p>
+    </div>
+    <form class="order-card" (ngSubmit)="submitLogin()">
+      <div class="form-step">
+        <span>1</span>
+        <div>
+          <label for="phone-number">Mobile number</label>
+          <input id="phone-number" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="10" placeholder="9876543210" required [(ngModel)]="phone" name="phone" />
+        </div>
+      </div>
+      <div class="form-step">
+        <span>2</span>
+        <div>
+          <label>OTP</label>
+          <div class="otp-digits" id="otp-wrapper" [style.display]="otpSent ? 'flex' : 'none'">
+            <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 1" [(ngModel)]="otp[0]" name="otp0" [disabled]="!otpSent" (input)="moveFocus($event, 0)" (keydown)="moveBack($event, 0)" />
+            <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 2" [(ngModel)]="otp[1]" name="otp1" [disabled]="!otpSent" (input)="moveFocus($event, 1)" (keydown)="moveBack($event, 1)" />
+            <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 3" [(ngModel)]="otp[2]" name="otp2" [disabled]="!otpSent" (input)="moveFocus($event, 2)" (keydown)="moveBack($event, 2)" />
+            <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 4" [(ngModel)]="otp[3]" name="otp3" [disabled]="!otpSent" (input)="moveFocus($event, 3)" (keydown)="moveBack($event, 3)" />
+          </div>
+          <button type="button" class="button" id="send-otp-btn" (click)="sendOtp()" [style.display]="otpSent ? 'none' : 'inline-flex'">Send OTP</button>
+        </div>
+      </div>
+      <button id="verify-btn" class="button button-primary" type="submit" [style.display]="otpSent ? 'inline-flex' : 'none'">Verify & login <span>→</span></button>
+    </form>
+    <p class="form-message" aria-live="polite">{{ message }}</p>
+  </section>
+</main>
+
+<footer><a class="brand" routerLink="/"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a><p>Good clothes. Great care. © 2026 A square.</p><div><a href="#">Instagram</a><a href="#">Help center</a></div></footer>
+</div>

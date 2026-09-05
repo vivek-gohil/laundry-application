@@ -1,0 +1,113 @@
+@media (max-width: 760px) {
+  .topbar { position: relative; }
+
+  .nav-links.open {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% - 4px);
+    right: 28px;
+    left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 10px 16px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 12px 24px rgba(23, 34, 74, 0.14);
+  }
+
+  .nav-links.open a { padding: 12px 0; }
+
+  .hero-visual {
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+/* Fill the hero frame while preserving the top sun and moon artwork. */
+.hero-image {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+/* A square brand mark */
+.brand {
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 42px;
+  border-radius: 15px;
+  background: #d9eef4;
+  color: #17224a;
+  justify-items: start;
+  padding-left: 9px;
+  font-size: 31px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.brand-icon i {
+  top: -8px;
+  right: -7px;
+  width: 17px;
+  height: 17px;
+  border-radius: 0;
+  background: transparent;
+  color: #f47b58;
+  font-size: 17px;
+  line-height: 17px;
+}
+
+.brand-icon sup {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #f47b58;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.brand-icon .star {
+  position: absolute;
+  display: block;
+  width: auto;
+  height: auto;
+  border: 0;
+  background: transparent;
+  color: #f47b58;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.brand-icon .star-one { top: 5px; right: 17px; font-size: 10px; }
+.brand-icon .star-two { top: 5px; right: 7px; font-size: 10px; }
+
+.mobile-login { display: none; }
+
+@media (max-width: 760px) {
+  .login { display: none; }
+
+  .nav-links.open .mobile-login { display: block; }
+
+  .brand-icon {
+    width: 50px;
+    height: 40px;
+    border-radius: 14px;
+    padding-left: 8px;
+    font-size: 29px;
+  }
+}

@@ -1,0 +1,140 @@
+@media (max-width: 760px) {
+  .topbar { position: relative; }
+
+  .nav-links {
+    display: none;
+  }
+
+  .nav-links.open {
+    position: absolute;
+    z-index: 10;
+    top: calc(100% - 4px);
+    right: 28px;
+    left: 28px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin: 0;
+    padding: 10px 16px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 12px 24px rgba(23, 34, 74, 0.14);
+  }
+
+  .nav-links.open a { padding: 12px 0; }
+
+  .hero-visual {
+    height: auto;
+    aspect-ratio: 1;
+  }
+}
+
+/* Fill the hero frame while preserving the top sun and moon artwork. */
+.hero-image {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.hero-visual {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto;
+}
+
+/* A square brand mark */
+.brand {
+  gap: 10px;
+}
+
+.brand-icon {
+  width: 52px;
+  height: 42px;
+  border-radius: 15px;
+  background: #d9eef4;
+  color: #17224a;
+  justify-items: start;
+  padding-left: 9px;
+  font-size: 31px;
+  font-weight: 700;
+  letter-spacing: -2px;
+}
+
+.brand-icon i {
+  top: -8px;
+  right: -7px;
+  width: 17px;
+  height: 17px;
+  border-radius: 0;
+  background: transparent;
+  color: #f47b58;
+  font-size: 17px;
+  line-height: 17px;
+}
+
+.brand-icon sup {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: #f47b58;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.brand-icon .star {
+  position: absolute;
+  display: block;
+  width: auto;
+  height: auto;
+  border: 0;
+  background: transparent;
+  color: #f47b58;
+  font-size: 10px;
+  line-height: 1;
+}
+
+.brand-icon .star-one { top: 5px; right: 17px; font-size: 10px; }
+.brand-icon .star-two { top: 5px; right: 7px; font-size: 10px; }
+
+.customer-logged-in > .topbar > .login { display: none; }.customer-menu{position:relative;margin-left:auto}.customer-menu-toggle{border:0;background:transparent;color:var(--ink);font:600 14px 'DM Sans',sans-serif;cursor:pointer;padding:8px}.customer-menu-panel{display:none;position:absolute;right:0;top:calc(100% + 8px);z-index:20;min-width:160px;padding:7px;background:#fff;border-radius:7px;box-shadow:0 10px 28px rgba(29,42,78,.17)}.customer-menu.is-open .customer-menu-panel{display:block}.customer-menu-panel a,.customer-menu-panel button{display:block;width:100%;box-sizing:border-box;padding:10px;text-align:left;border:0;background:transparent;color:var(--ink);font:500 14px 'DM Sans',sans-serif;text-decoration:none;cursor:pointer;border-radius:4px}.customer-menu-panel a:hover,.customer-menu-panel button:hover{background:#fff3ed;color:var(--orange)}
+.mobile-login { display: none; }
+
+@media (max-width: 760px) {
+  .login { display: none; }
+
+  .topbar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .customer-menu {
+    order: 2;
+    margin-left: auto;
+  }
+
+  .menu-toggle {
+    order: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    margin-left: 0;
+    border-radius: 8px;
+  }
+
+  .nav-links.open .mobile-login { display: block; }
+
+  .brand-icon {
+    width: 50px;
+    height: 40px;
+    border-radius: 14px;
+    padding-left: 8px;
+    font-size: 29px;
+  }
+}

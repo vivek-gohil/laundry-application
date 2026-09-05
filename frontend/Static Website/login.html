@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | A square</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="branding.css" />
+  <link rel="stylesheet" href="mobile-menu.css" />
+</head>
+<body class="pricing-page">
+  <header class="topbar">
+    <a class="brand" href="index.html" aria-label="A square home"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">☰</button>
+    <nav class="nav-links" id="primary-navigation">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="pricing.html">Pricing</a>
+      <a class="mobile-login" href="login.html" aria-current="page">Log in <span>&rarr;</span></a>
+    </nav>
+    <a class="login" href="login.html" aria-current="page">Log in <span>→</span></a>
+  </header>
+
+  <main class="login-page">
+    <section class="order-section">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> MEMBER SIGN IN</p>
+        <h2>Login with your<br /><em>mobile number.</em></h2>
+        <p>Enter your mobile number and verify with an OTP to continue.</p>
+      </div>
+      <form class="order-card" id="login-form">
+        <div class="form-step">
+          <span>1</span>
+          <div>
+            <label for="phone-number">Mobile number</label>
+            <input id="phone-number" type="tel" inputmode="numeric" pattern="[0-9]*" maxlength="10" placeholder="9876543210" required />
+          </div>
+        </div>
+        <div class="form-step">
+          <span>2</span>
+          <div>
+            <label>OTP</label>
+            <div class="otp-digits" id="otp-wrapper" style="display:none;">
+              <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 1" disabled />
+              <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 2" disabled />
+              <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 3" disabled />
+              <input class="otp-digit" type="text" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-label="OTP digit 4" disabled />
+            </div>
+            <button type="button" class="button" id="send-otp-btn">Send OTP</button>
+          </div>
+        </div>
+        <button id="verify-btn" class="button button-primary" type="submit" style="display:none;">Verify & login <span>→</span></button>
+      </form>
+      <p class="form-message" id="login-message" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="index.html"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a><p>Good clothes. Great care. © 2026 A square.</p><div><a href="#">Instagram</a><a href="#">Help center</a></div></footer>
+  <script src="script.js"></script>
+</body>
+</html>

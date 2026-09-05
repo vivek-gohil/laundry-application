@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A square — Professional ironing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <link rel="stylesheet" th:href="@{/css/ironing.css}" />
+  <link rel="stylesheet" th:href="@{/css/branding.css}" />
+  <link rel="stylesheet" th:href="@{/css/mobile-menu.css}" />
+
+
+</head>
+
+<body th:classappend="${customerName != null} ? ' customer-logged-in' : ''">
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="A square home"><span class="brand-icon" aria-hidden="true">A<i
+          class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span>
+        <span class="brand-name">square</span></span></a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false"
+      aria-controls="primary-navigation">☰</button>
+    <nav class="nav-links" id="primary-navigation">
+      <a href="#services">Services</a>
+      <a href="#how-it-works">How it works</a>
+      <a th:href="@{/pricing}">Pricing</a>
+      <a th:href="@{/register}">Register</a>
+      <a class="mobile-login" th:if="${customerName == null}" th:href="@{/login}">Sign in <span>&rarr;</span></a>
+      <a class="mobile-login" th:if="${customerName != null}" th:href="@{/dashboard}" th:text="${customerName}">My
+        dashboard</a>
+    </nav>
+    <a class="login" th:href="@{/login}">Sign in <span>→</span></a>
+    <div class="customer-menu" th:if="${customerName != null}">
+      <button class="customer-menu-toggle" type="button" aria-expanded="false" aria-controls="customer-menu-panel"><span
+          th:text="${customerName}">Customer</span> ▾</button>
+      <div class="customer-menu-panel" id="customer-menu-panel">
+        <a th:href="@{/dashboard}">My dashboard</a>
+        <button id="logout-btn" type="button">Log out</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> IRONING, MADE EFFORTLESS</p>
+        <h1>Perfectly pressed,<br /><em>less fuss.</em></h1>
+        <p class="intro">We currently provide professional ironing only. Book a pickup and get your clothes returned
+          crisp, smooth, and ready to wear.</p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#order">Schedule a pickup <span>→</span></a>
+          <a class="watch-link" href="#how-it-works"><i>▶</i> See how it works</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <img class="hero-image" th:src="@{/images/ironing-hero-realistic.png}"
+          alt="A professional ironing a white shirt with a peach steam iron" />
+        <div class="fresh-note"><span class="note-icon">✓</span>
+          <div><b>Pressed &amp; ready!</b><small>Ironing only, for now</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features" id="services">
+      <article>
+        <div class="feature-icon peach">⌂</div>
+        <div>
+          <h3>Free pickup &amp; delivery</h3>
+          <p>Right from your doorstep, on your schedule.</p>
+        </div>
+      </article>
+      <article>
+        <div class="feature-icon blue">✧</div>
+        <div>
+          <h3>Expert ironing care</h3>
+          <p>Every item is pressed with attention and care.</p>
+        </div>
+      </article>
+      <article>
+        <div class="feature-icon yellow">☻</div>
+        <div>
+          <h3>Happiness guaranteed</h3>
+          <p>Not delighted? We'll make it right.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="order-section" id="order">
+      <div class="section-heading">
+        <p class="eyebrow"><span></span> CURRENTLY OFFERING IRONING ONLY</p>
+        <h2>Ironing day, <em>upgraded.</em></h2>
+      </div>
+      <form class="order-card" id="pickup-form" novalidate>
+        <div class="form-step"><span>1</span>
+          <div><label for="service">Service</label><select id="service">
+              <option>Professional ironing</option>
+            </select></div>
+        </div>
+        <div class="form-step"><span>2</span>
+          <div><label for="pickup-date">Pick a date</label><input id="pickup-date" type="date" /></div>
+        </div>
+        <button class="button button-primary" type="submit">Find pickup times <span>→</span></button>
+      </form>
+      <p class="form-message" id="form-message" aria-live="polite"></p>
+      <div class="pickup-results" id="pickup-results" aria-live="polite" hidden></div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div>
+        <p class="eyebrow"><span></span> SIMPLE AS 1, 2, 3</p>
+        <h2>We take care of<br />the <em>pressing.</em></h2>
+      </div>
+      <div class="steps">
+        <article><b>01</b>
+          <h3>Book a pickup</h3>
+          <p>Choose a time that works for you in just a few taps.</p>
+        </article>
+        <article><b>02</b>
+          <h3>We press with care</h3>
+          <p>Your clothes receive a crisp, professional finish.</p>
+        </article>
+        <article><b>03</b>
+          <h3>Ready to wear</h3>
+          <p>Your freshly ironed clothes arrive ready for your closet.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#home"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i
+          class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span
+          class="brand-name">square</span></span></a>
+    <p>Good clothes. Great care. © 2026 A square.</p>
+    <div><a href="#">Instagram</a><a href="#">Help center</a></div>
+  </footer>
+  <script th:src="@{/js/script.js}"></script>
+</body>
+
+</html>

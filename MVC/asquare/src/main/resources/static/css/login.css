@@ -1,0 +1,90 @@
+@media (max-width: 480px) {
+  .topbar {
+    padding: 18px 18px;
+  }
+
+  .brand {
+    font-size: 22px;
+  }
+
+  .order-section {
+    max-width: 100%;
+    margin: 28px auto 0;
+    padding: 0 14px;
+  }
+
+  .section-heading {
+    margin-bottom: 18px;
+  }
+
+  .section-heading .eyebrow {
+    margin-bottom: 12px;
+  }
+
+  .section-heading h2 {
+    font-size: clamp(2.6rem, 10vw, 3.4rem);
+    line-height: 0.96;
+    letter-spacing: -1.5px;
+  }
+
+  .section-heading p {
+    margin-top: 16px;
+    font-size: 15px;
+    line-height: 1.55;
+  }
+
+  .order-card {
+    max-width: 100%;
+    margin-top: 18px;
+    padding: 18px 14px 14px;
+  }
+
+  .form-step {
+    grid-template-columns: 28px 1fr;
+    gap: 10px;
+    padding: 10px 0;
+  }
+
+  .form-step span {
+    width: 28px;
+    height: 28px;
+    font-size: 15px;
+  }
+
+  .form-step label {
+    font-size: 12px;
+    letter-spacing: 0.12em;
+  }
+
+  .form-step input,
+  .form-step select {
+    width: 100%;
+    min-height: 46px;
+    font-size: 16px;
+  }
+
+  .otp-digits {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+
+  .otp-digit {
+    width: calc((100% - 40px) / 6);
+    max-width: 42px;
+    height: 52px;
+    font-size: 20px;
+  }
+
+  .button.button-primary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-message {
+    margin-top: 18px;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+}

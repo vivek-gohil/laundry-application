@@ -1,0 +1,78 @@
+<div class="pricing-page">
+    <header class="topbar">
+        <a class="brand" routerLink="/" aria-label="A square home"><span class="brand-icon" aria-hidden="true">A<i
+                    class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span
+                    class="brand-letter">A</span> <span class="brand-name">square</span></span></a>
+        <button class="menu-toggle" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'"
+            [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation" (click)="toggleMenu()">☰</button>
+        <nav class="nav-links" [class.open]="menuOpen" id="primary-navigation">
+            <a routerLink="/" (click)="closeMenu()">Services</a>
+            <a routerLink="/" (click)="closeMenu()">How it works</a>
+            <a routerLink="/pricing" aria-current="page" (click)="closeMenu()">Pricing</a>
+            <a class="mobile-login" routerLink="/login" (click)="closeMenu()">Log in <span>&rarr;</span></a>
+        </nav>
+        <a class="login" routerLink="/login">Log in <span>&rarr;</span></a>
+    </header>
+
+    <main>
+        <section class="pricing-intro">
+            <p class="eyebrow"><span></span> SIMPLE, TRANSPARENT PRICING</p>
+            <h1>Freshly pressed,<br /><em>fairly priced.</em></h1>
+            <p>Professional ironing for every item in your wardrobe. Free pickup and delivery are included.</p>
+        </section>
+
+        <section class="price-grid" aria-label="Ironing prices">
+            <article class="price-card featured">
+                <p class="popular">MOST POPULAR</p>
+                <div class="price-icon peach">❤</div>
+                <h2>Everyday essentials</h2>
+                <p class="card-copy">Crisp care for your weekday wardrobe.</p>
+                <div class="price-row"><span>Shirts</span><strong>₹ 8</strong></div>
+                <div class="price-row"><span>T-shirts &amp; tops</span><strong>₹ 8</strong></div>
+                <div class="price-row"><span>Trousers &amp; jeans</span><strong>₹ 8</strong></div>
+                <div class="price-row"><span>Kurtas</span><strong>₹ 8</strong></div>
+                <a class="button button-primary" routerLink="/login">Book a pickup <span>→</span></a>
+            </article>
+
+            <article class="price-card">
+                <div class="price-icon blue">✦</div>
+                <h2>Smart wardrobe</h2>
+                <p class="card-copy">Polished pieces for work and occasions.</p>
+                <div class="price-row"><span>Dresses &amp; skirts</span><strong>₹ 8</strong></div>
+                <div class="price-row"><span>Blazers</span><strong>₹ 16</strong></div>
+                <div class="price-row"><span>Co-ord sets</span><strong>₹ 16</strong></div>
+                <a class="button button-primary" routerLink="/login">Book a pickup <span>→</span></a>
+            </article>
+
+            <article class="price-card">
+                <div class="price-icon yellow">✹</div>
+                <h2>Traditional wear</h2>
+                <p class="card-copy">Extra attention for special fabrics.</p>
+                <div class="price-row"><span>Modi Jacket</span><strong>₹ 16</strong></div>
+                <div class="price-row"><span>Pathani Suit</span><strong>₹ 12</strong></div>
+                <div class="price-row"><span>Saree</span><strong>₹ 40</strong></div>
+                <div class="price-row"><span>Saree - Roll Press</span><strong>₹ 80</strong></div>
+                <div class="price-row"><span>Saree - Bandhani</span><strong>₹ 90</strong></div>
+                
+                <div class="price-row"><span>Saree - Paper Press</span><strong>₹ 120</strong></div>
+                <div class="price-row"><span>Saree - Starch</span><strong>₹ 140</strong></div>
+                <a class="button button-primary" routerLink="/login">Book a pickup <span>→</span></a>
+            </article>
+        </section>
+
+        <section class="pricing-note">
+            <div class="note-badge">✓</div>
+            <div>
+                <h2>Pickup and delivery are on us.</h2>
+                <p>No hidden fees. Your final total is based only on the items you send us.</p>
+            </div>
+        </section>
+    </main>
+
+    <footer><a class="brand" routerLink="/"><span class="brand-icon" aria-hidden="true">A<i
+                    class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span
+                    class="brand-letter">A</span> <span class="brand-name">square</span></span></a>
+        <p>Good clothes. Great care. © 2026 A square.</p>
+        <div><a href="#">Instagram</a><a href="#">Help center</a></div>
+    </footer>
+</div>

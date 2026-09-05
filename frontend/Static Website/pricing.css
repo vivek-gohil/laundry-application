@@ -1,0 +1,23 @@
+.pricing-page { min-height: 100vh; }
+.pricing-page .topbar { position: relative; z-index: 2; }
+.pricing-intro { max-width: 720px; margin: 58px auto 42px; padding: 0 28px; text-align: center; }
+.pricing-intro .eyebrow { margin-bottom: 18px; }
+.pricing-intro h1 { font-family: 'Playfair Display', serif; font-size: clamp(46px, 6vw, 68px); line-height: .98; letter-spacing: -3px; margin: 0; }
+.pricing-intro > p:last-child { max-width: 530px; margin: 24px auto 0; color: var(--muted); font-size: 16px; line-height: 1.65; }
+.price-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; max-width: 1060px; margin: 0 auto 54px; padding: 0 28px; align-items: stretch; }
+.price-card { position: relative; padding: 30px; background: #fff; border: 1px solid #f0ebe2; border-radius: 14px; box-shadow: 0 12px 28px rgba(23, 34, 74, .07); }
+.price-card.featured { grid-column: 2; grid-row: 1; border: 2px solid var(--orange); transform: translateY(-12px); box-shadow: 0 18px 34px rgba(244, 123, 88, .18); }
+.price-card:nth-child(2) { grid-column: 3; grid-row: 1; }
+.price-card:nth-child(3) { grid-column: 1; grid-row: 1; }
+.popular { position: absolute; top: -13px; left: 50%; margin: 0; padding: 6px 12px; transform: translateX(-50%); border-radius: 20px; background: var(--orange); color: #fff; font-size: 10px; font-weight: 700; letter-spacing: 1px; white-space: nowrap; }
+.price-icon { display: grid; width: 46px; height: 46px; place-items: center; border-radius: 50%; font-size: 19px; }
+.price-card h2 { margin: 20px 0 7px; font-family: 'DM Sans', sans-serif; font-size: 20px; letter-spacing: -.5px; }
+.card-copy { min-height: 44px; margin: 0 0 21px; color: var(--muted); font-size: 13px; line-height: 1.6; }
+.price-row { display: flex; justify-content: space-between; gap: 12px; padding: 13px 0; border-top: 1px solid #eee9e2; color: var(--muted); font-size: 14px; }
+.price-row strong { color: var(--ink); }
+.price-card .button { width: 100%; justify-content: center; margin-top: 24px; }
+.pricing-note { display: flex; gap: 16px; align-items: center; max-width: 800px; margin: 0 auto 80px; padding: 23px 28px; border-radius: 10px; background: var(--blue); }
+.note-badge { display: grid; flex: 0 0 auto; width: 38px; height: 38px; place-items: center; border-radius: 50%; background: #fff; color: #39a474; font-weight: 700; }
+.pricing-note h2 { margin: 0 0 4px; font-family: 'DM Sans', sans-serif; font-size: 16px; letter-spacing: 0; }
+.pricing-note p { margin: 0; color: var(--muted); font-size: 13px; }
+@media (max-width: 760px) { .pricing-intro { margin-top: 38px; } .price-grid { grid-template-columns: 1fr; max-width: 480px; } .price-card.featured, .price-card:nth-child(2), .price-card:nth-child(3) { grid-column: auto; } .price-card.featured { transform: none; } .pricing-note { margin: 0 28px 55px; } }

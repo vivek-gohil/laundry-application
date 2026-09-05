@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pricing | A square — Professional ironing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" th:href="@{/css/styles.css}" />
+  <link rel="stylesheet" th:href="@{/css/branding.css}" />
+  <link rel="stylesheet" th:href="@{/css/mobile-menu.css}" />
+  <link rel="stylesheet" th:href="@{/css/pricing.css}" />
+</head>
+<body class="pricing-page">
+  <header class="topbar">
+    <a class="brand" th:href="@{/}" aria-label="A square home"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a>
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="primary-navigation">&#9776;</button>
+    <nav class="nav-links" id="primary-navigation">
+      <a th:href="@{/#services}">Services</a>
+      <a th:href="@{/#how-it-works}">How it works</a>
+      <a th:href="@{/pricing}" aria-current="page">Pricing</a>
+      <a th:href="@{/register}">Register</a>
+      <a class="mobile-login" th:href="@{/login}">Sign in <span>&rarr;</span></a>
+    </nav>
+    <a class="login" th:href="@{/login}">Sign in <span>&rarr;</span></a>
+  </header>
+
+  <main>
+    <section class="pricing-intro">
+      <p class="eyebrow"><span></span> SIMPLE, TRANSPARENT PRICING</p>
+      <h1>Freshly pressed,<br /><em>fairly priced.</em></h1>
+      <p>Professional ironing for every item in your wardrobe. Free pickup and delivery are included.</p>
+    </section>
+
+    <section class="price-grid" aria-label="Ironing prices">
+      <article class="price-card featured">
+        <p class="popular">MOST POPULAR</p>
+        <div class="price-icon peach">&#9825;</div>
+        <h2>Everyday essentials</h2>
+        <p class="card-copy">Crisp care for your weekday wardrobe.</p>
+        <div class="price-row"><span>Shirts &amp; blouses</span><strong>&#8377;49</strong></div>
+        <div class="price-row"><span>T-shirts &amp; tops</span><strong>&#8377;39</strong></div>
+        <div class="price-row"><span>Trousers &amp; jeans</span><strong>&#8377;59</strong></div>
+        <a class="button button-primary" th:href="@{/#order}">Book a pickup <span>&rarr;</span></a>
+      </article>
+
+      <article class="price-card">
+        <div class="price-icon blue">&#10022;</div>
+        <h2>Smart wardrobe</h2>
+        <p class="card-copy">Polished pieces for work and occasions.</p>
+        <div class="price-row"><span>Dresses &amp; skirts</span><strong>&#8377;79</strong></div>
+        <div class="price-row"><span>Blazers &amp; jackets</span><strong>&#8377;99</strong></div>
+        <div class="price-row"><span>Co-ord sets</span><strong>&#8377;99</strong></div>
+        <a class="button button-primary" th:href="@{/#order}">Book a pickup <span>&rarr;</span></a>
+      </article>
+
+      <article class="price-card">
+        <div class="price-icon yellow">&#10026;</div>
+        <h2>Traditional wear</h2>
+        <p class="card-copy">Extra attention for special fabrics.</p>
+        <div class="price-row"><span>Kurtas &amp; tunics</span><strong>&#8377;69</strong></div>
+        <div class="price-row"><span>Saree</span><strong>&#8377;129</strong></div>
+        <div class="price-row"><span>Lehenga</span><strong>&#8377;199</strong></div>
+        <a class="button button-primary" th:href="@{/#order}">Book a pickup <span>&rarr;</span></a>
+      </article>
+    </section>
+
+    <section class="pricing-note">
+      <div class="note-badge">&#10003;</div>
+      <div><h2>Pickup and delivery are on us.</h2><p>No hidden fees. Your final total is based only on the items you send us.</p></div>
+    </section>
+  </main>
+
+  <footer><a class="brand" th:href="@{/}"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a><p>Good clothes. Great care. &copy; 2026 A square.</p><div><a href="#">Instagram</a><a href="#">Help center</a></div></footer>
+  <script th:src="@{/js/script.js}"></script>
+</body>
+</html>

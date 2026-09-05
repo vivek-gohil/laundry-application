@@ -1,0 +1,54 @@
+<div class="home-page">
+<header class="topbar">
+  <a class="brand" routerLink="/" aria-label="A square home"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a>
+  <button class="menu-toggle" [attr.aria-label]="menuOpen ? 'Close menu' : 'Open menu'" [attr.aria-expanded]="menuOpen" aria-controls="primary-navigation" (click)="toggleMenu()">☰</button>
+  <nav class="nav-links" [class.open]="menuOpen" id="primary-navigation">
+    <a href="#services" (click)="closeMenu()">Services</a>
+    <a href="#how-it-works" (click)="closeMenu()">How it works</a>
+    <a routerLink="/pricing" (click)="closeMenu()">Pricing</a>
+    <a class="mobile-login" routerLink="/login" (click)="closeMenu()">Log in <span>&rarr;</span></a>
+  </nav>
+  <a class="login" routerLink="/login">Log in <span>→</span></a>
+</header>
+
+<main id="home">
+  <section class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow"><span></span> IRONING, MADE EFFORTLESS</p>
+      <h1>Perfectly pressed,<br /><em>less fuss.</em></h1>
+      <p class="intro">We currently provide professional ironing only. Book a pickup and get your clothes returned crisp, smooth, and ready to wear.</p>
+      <div class="hero-actions">
+        <a class="button button-primary" routerLink="/login">Schedule a pickup <span>→</span></a>
+        <a class="watch-link" href="#how-it-works"><i>▶</i> See how it works</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <img class="hero-image" src="/ironing-hero-realistic.png" alt="A professional ironing a white shirt with a peach steam iron" />
+      <div class="fresh-note"><span class="note-icon">✓</span><div><b>Pressed &amp; ready!</b><small>Ironing only, for now</small></div></div>
+    </div>
+  </section>
+
+  <section class="features" id="services">
+    <article><div class="feature-icon peach">⌂</div><div><h3>Free pickup &amp; delivery</h3><p>Right from your doorstep, on your schedule.</p></div></article>
+    <article><div class="feature-icon blue">✧</div><div><h3>Expert ironing care</h3><p>Every item is pressed with attention and care.</p></div></article>
+    <article><div class="feature-icon yellow">☻</div><div><h3>Happiness guaranteed</h3><p>Not delighted? We'll make it right.</p></div></article>
+  </section>
+
+  <section class="order-section" id="order">
+    <div class="section-heading"><p class="eyebrow"><span></span> CURRENTLY OFFERING IRONING ONLY</p><h2>Ironing day, <em>upgraded.</em></h2></div>
+    <form class="order-card" (ngSubmit)="submitPickup()">
+      <div class="form-step"><span>1</span><div><label for="service">Service</label><select id="service" [(ngModel)]="service" name="service"><option>Professional ironing</option></select></div></div>
+      <div class="form-step"><span>2</span><div><label for="pickup-date">Pick a date</label><input id="pickup-date" type="date" [(ngModel)]="pickupDate" name="pickupDate" [min]="minDate" /></div></div>
+      <button class="button button-primary" type="submit">Find pickup times <span>→</span></button>
+    </form>
+    <p class="form-message" aria-live="polite">{{ formMessage }}</p>
+  </section>
+
+  <section class="how-section" id="how-it-works">
+    <div><p class="eyebrow"><span></span> SIMPLE AS 1, 2, 3</p><h2>We take care of<br />the <em>pressing.</em></h2></div>
+    <div class="steps"><article><b>01</b><h3>Book a pickup</h3><p>Choose a time that works for you in just a few taps.</p></article><article><b>02</b><h3>We press with care</h3><p>Your clothes receive a crisp, professional finish.</p></article><article><b>03</b><h3>Ready to wear</h3><p>Your freshly ironed clothes arrive ready for your closet.</p></article></div>
+  </section>
+</main>
+
+<footer><a class="brand" routerLink="/home"><span class="brand-icon" aria-hidden="true">A<i class="star star-one">✦</i><i class="star star-two">✦</i></span><span><span class="brand-letter">A</span> <span class="brand-name">square</span></span></a><p>Good clothes. Great care. © 2026 A square.</p><div><a href="#">Instagram</a><a href="#">Help center</a></div></footer>
+</div>

@@ -1,0 +1,449 @@
+{
+  "info": {
+    "_postman_id": "c07a39f2-2a09-4931-8105-58ad1a2965aa",
+    "name": "Laundry Application",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "6913289",
+    "_collection_link": "https://go.postman.co/collection/6913289-c07a39f2-2a09-4931-8105-58ad1a2965aa?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Customer",
+      "item": [
+        {
+          "name": "Get Customer By CustomerId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/customers/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/customers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Customer",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Vivek\",\r\n    \"lastName\": \"Gohil\",\r\n    \"mobile\": \"9920728158\",\r\n    \"email\": \"vivekgohil@example.com\",\r\n    \"flatNumber\": \"G-2405\",\r\n    \"buildingName\": \"Casa Belvedere\",\r\n    \"addressLine1\": \"Central Avanue Road\",\r\n    \"addressLine2\": \"Opp Kalyan Shil Road\",\r\n    \"city\": \"Mumbai\",\r\n    \"pincode\": \"421304\",\r\n    \"landmark\": \"Opp Runwal Gardens\",\r\n    \"active\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/customers/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add New Customer",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"firstName\": \"Trupti\",\r\n    \"lastName\": \"Gohil\",\r\n    \"mobile\": \"9769296929\",\r\n    \"email\": \"truptiga@example.com\",\r\n    \"flatNumber\": \"G-2405\",\r\n    \"buildingName\": \"Casa Belvedere\",\r\n    \"addressLine1\": \"Central Avanue Road\",\r\n    \"addressLine2\": \"Opp Kalyan Shil Road\",\r\n    \"city\": \"Mumbai\",\r\n    \"pincode\": \"421304\",\r\n    \"landmark\": \"Opp Runwal Gardens\",\r\n    \"active\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/customers",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Customer",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/customers/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "customers",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Service Master",
+      "item": [
+        {
+          "name": "Get Service By Id",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/services/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "services",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Service By Service Id",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"active\": true,\r\n    \"price\": 30.00,\r\n    \"serviceName\": \"Wash\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/services/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "services",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Service By Id",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"active\": true,\r\n    \"price\": 30.00,\r\n    \"serviceName\": \"Wash\"\r\n}"
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/services/11",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "services",
+                "11"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Services",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/services",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "services"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add New Service",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"active\": true,\r\n    \"price\": 300.00,\r\n    \"serviceName\": \"Curtain Wash\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/services",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "services"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order",
+      "item": [
+        {
+          "name": "Get All Orders",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Order By OrderId",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/api/orders/1",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Add new order",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"customerId\": 1,\r\n    \"deliveryDate\": \"2025-07-16\",\r\n    \"items\": [\r\n        {\r\n            \"itemName\": \"Shirt\",\r\n            \"lineAmount\": 350.00,\r\n            \"orderItemId\": 1,\r\n            \"quantity\": 5,\r\n            \"serviceId\": 2,\r\n            \"serviceName\": \"Wash & Iron\",\r\n            \"unitPrice\": 70.00\r\n        },\r\n        {\r\n            \"itemName\": \"Pant\",\r\n            \"lineAmount\": 100.00,\r\n            \"orderItemId\": 2,\r\n            \"quantity\": 4,\r\n            \"serviceId\": 10,\r\n            \"serviceName\": \"Steam Iron\",\r\n            \"unitPrice\": 25.00\r\n        },\r\n        {\r\n            \"itemName\": \"Kurta\",\r\n            \"lineAmount\": 50.00,\r\n            \"orderItemId\": 26,\r\n            \"quantity\": 1,\r\n            \"serviceId\": 1,\r\n            \"serviceName\": \"Wash\",\r\n            \"unitPrice\": 50.00\r\n        }\r\n    ],\r\n    \"pickupDate\": \"2025-07-14\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/orders",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Order Details",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"customerId\": 1,\r\n    \"deliveryDate\": \"2025-07-16\",\r\n    \"items\": [\r\n        {\r\n            \"itemName\": \"Shirt\",\r\n            \"lineAmount\": 350.00,\r\n            \"orderItemId\": 1,\r\n            \"quantity\": 5,\r\n            \"serviceId\": 2,\r\n            \"serviceName\": \"Wash & Iron\",\r\n            \"unitPrice\": 70.00\r\n        },\r\n        {\r\n            \"itemName\": \"Pant\",\r\n            \"lineAmount\": 100.00,\r\n            \"orderItemId\": 2,\r\n            \"quantity\": 4,\r\n            \"serviceId\": 10,\r\n            \"serviceName\": \"Steam Iron\",\r\n            \"unitPrice\": 25.00\r\n        },\r\n        {\r\n            \"itemName\": \"Kurta\",\r\n            \"lineAmount\": 50.00,\r\n            \"orderItemId\": 26,\r\n            \"quantity\": 1,\r\n            \"serviceId\": 1,\r\n            \"serviceName\": \"Wash\",\r\n            \"unitPrice\": 50.00\r\n        }\r\n    ],\r\n    \"pickupDate\": \"2025-07-14\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "http://localhost:8080/api/orders/11/status?orderId=11&status=PICKUP_SCHEDULED",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "api",
+                "orders",
+                "11",
+                "status"
+              ],
+              "query": [
+                {
+                  "key": "orderId",
+                  "value": "11",
+                  "type": "text"
+                },
+                {
+                  "key": "status",
+                  "value": "PICKUP_SCHEDULED",
+                  "type": "text"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Order Tracking",
+      "item": [
+        {
+          "name": "Track Order",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "const response = pm.response.json();\r",
+                  "\r",
+                  "pm.environment.set(\r",
+                  "    \"token\",\r",
+                  "    response.data.accessToken\r",
+                  ");"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"Admin@123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/auth/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

@@ -134,6 +134,7 @@ CREATE TABLE customers (
     flat_number VARCHAR(20) NOT NULL,
     email VARCHAR(150) NULL,
     mobile VARCHAR(15) NOT NULL,
+    login_pin_hash VARCHAR(255) NOT NULL,
     active BOOLEAN NOT NULL DEFAULT TRUE,
     created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
     created_by BIGINT UNSIGNED NULL,
@@ -242,29 +243,6 @@ CREATE TABLE pickup_schedule_exception (
     INDEX idx_pickup_bookings_date_slot (pickup_date, slot_master_id),
     INDEX idx_pickup_bookings_customer (customer_id),
     INDEX idx_pickup_bookings_status (booking_status)
-) ENGINE=InnoDB
-  DEFAULT CHARSET=utf8mb4
-  COLLATE=utf8mb4_unicode_ci;
-  
-  
-  CREATE TABLE customer_otp (
-    otp_id BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
-    customer_id BIGINT UNSIGNED NOT NULL,
-    mobile VARCHAR(15) NOT NULL,
-    otp_code VARCHAR(10) NOT NULL,
-    expires_at DATETIME NOT NULL,
-    verified_at DATETIME NULL,
-    attempts INT UNSIGNED NOT NULL DEFAULT 0,
-    created_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    created_by VARCHAR(50) NULL,
-    updated_at DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    updated_by VARCHAR(50) NULL,
-    PRIMARY KEY (otp_id),
-    CONSTRAINT fk_customer_otp_customer FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON UPDATE CASCADE  ON DELETE RESTRICT,
-    INDEX idx_customer_otp_customer (customer_id),
-    INDEX idx_customer_otp_mobile (mobile),
-    INDEX idx_customer_otp_expires (expires_at)
-
 ) ENGINE=InnoDB
   DEFAULT CHARSET=utf8mb4
   COLLATE=utf8mb4_unicode_ci;
